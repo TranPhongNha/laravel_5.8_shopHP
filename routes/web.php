@@ -20,6 +20,15 @@ Route::get('/home', function () {
 
 // laravel 5 prefixes
 Route::prefix('categories')->group(function () {
+    // goi đến index
+    Route::get('/', [
+        //mãng confit
+        'as'=> 'categories.index',
+        'uses'=> 'CategoryController@index'
+        // phân quyền 
+        // midderque
+        // trước khi link tạo CategoryController 
+    ]);
     Route::get('/create', [
         //mãng confit
         'as'=> 'categories.create',
