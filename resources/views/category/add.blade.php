@@ -35,26 +35,29 @@
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- form  -->
+            <div class="col-md-6">
+                 <!-- form  -->
           <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label>Tên Danh Mục</label>
+    <input type="email" class="form-control" placeholder="Nhập tên Danh Mục">
   </div>
+  <!-- //danh mục cha  -->
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label>Chọn Danh Mục Cha</label>
+    <select class="form-control">
+      <option value="0">Chọn danh mục cha</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  <!-- end danh mục cha -->
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
           <!-- end form  -->
-       
-
+            </div>
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
