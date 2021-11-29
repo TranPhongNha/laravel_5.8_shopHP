@@ -17,3 +17,15 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+// laravel 5 prefixes
+Route::prefix('categories')->group(function () {
+    Route::get('/create', [
+        //mãng confit
+        'as'=> 'categories.create',
+        'uses'=> 'CategoryController@create'
+        // phân quyền 
+        // midderque
+        // trước khi link tạo CategoryController 
+    ]);
+});
