@@ -14,7 +14,7 @@
       <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partial.content-header',['name'=>'category', 'key'=>'List']);
+    @include('partial.content-header',['name'=>'category', 'key'=>'List'])
     <!-- /.content-header -->
 
     <!-- Main content -->

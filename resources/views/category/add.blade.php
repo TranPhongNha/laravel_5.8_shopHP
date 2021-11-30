@@ -14,7 +14,7 @@
       <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('partial.content-header',['name'=>'category', 'key'=>'Add']);
+    @include('partial.content-header',['name'=>'category', 'key'=>'Add'])
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -33,10 +33,8 @@
     <label>Chọn Danh Mục Cha</label>
     <select class="form-control">
       <option value="0">Chọn danh mục cha</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <!-- do kieu string nen dùng {4xChấm than}-->
+      {!! $htmlOption !!}
     </select>
   </div>
   <!-- end danh mục cha -->
