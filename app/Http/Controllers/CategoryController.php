@@ -4,17 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Components\Recusive;
 
 class CategoryController extends Controller
 {
     //thực tế
-    private $htmlSlelect;
-    public function __construct(){
-        $this->htmlSlelect ='';
+    // private $htmlSlelect;
+    private $category;
+    public function __construct(Category $category){
+        // $this->htmlSlelect ='';
+        $this->category = $category;
     }
     public function create(){
         //hiển thi category trong databsae
-        $data = Category::all();
+        // $data = Category::all();
+        $data = $this->category->all();
+        //lấy recusive qua, khi new 1 cái contructer thì sẽ nhận 1 biến data
+        $recusive = new Recusive($data);
+        // sau khi gọi được hàm thì khai báo phương thức 
+        $htmlOption = $recusive->categoryRecusive();
 
         // foreach ($data as $value){
         //     if ($value['parent_id'] == 0){
@@ -36,24 +44,24 @@ class CategoryController extends Controller
         //demo
         // $this->categoryRecusive(0);
         //thực tế
-        $htmlOption = $this->categoryRecusive(0);
+        // $htmlOption = $this->categoryRecusive(0);
         return view('category.add', compact('htmlOption'));
         //    return view('category.add');
     }
     //đệ Qui
-    function categoryRecusive($id, $text =''){
-        $data = Category::all();
-        foreach ($data as $value){
-            if ($value['parent_id'] == $id){
-                //demo
-                // echo "<option>".$text.$value['name']."</option>";
-                //thuc tế
-                $this->htmlSlelect .= "<option>".$text.$value['name']."</option>";
-                $this->categoryRecusive($value['id'],$text.'-');
-            }
-        }
-         return $this->htmlSlelect;
-    }
+    // function categoryRecusive($id, $text =''){
+    //     $data = Category::all();
+    //     foreach ($data as $value){
+    //         if ($value['parent_id'] == $id){
+    //             //demo
+    //             // echo "<option>".$text.$value['name']."</option>";
+    //             //thuc tế
+    //             $this->htmlSlelect .= "<option>".$text.$value['name']."</option>";
+    //             $this->categoryRecusive($value['id'],$text.'-');
+    //         }
+    //     }
+    //      return $this->htmlSlelect;
+    // }
 
     public function index(){
         return view('category.index');
