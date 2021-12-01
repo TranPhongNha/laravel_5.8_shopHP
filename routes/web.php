@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,25 +24,25 @@ Route::prefix('categories')->group(function () {
     // goi đến index
     Route::get('/', [
         //mãng confit
-        'as'=> 'categories.index',
-        'uses'=> 'CategoryController@index'
-        // phân quyền 
+        'as' => 'categories.index',
+        'uses' => 'CategoryController@index'
+        // phân quyền
         // midderque
-        // trước khi link tạo CategoryController 
+        // trước khi link tạo CategoryController
     ]);
     Route::get('/create', [
         //mãng confit
-        'as'=> 'categories.create',
-        'uses'=> 'CategoryController@create'
-        // phân quyền 
+        'as' => 'categories.create',
+        'uses' => 'CategoryController@create'
+        // phân quyền
         // midderque
-        // trước khi link tạo CategoryController 
+        // trước khi link tạo CategoryController
     ]);
 
-    //route submit form 
+    //route submit form
     Route::get('/store', [
         //mãng confit
-        'as'=> 'categories.store',
-        'uses'=> 'CategoryController@store'
+        'as' => 'categories.store',
+        'uses' => 'CategoryController@store']);
 
 });

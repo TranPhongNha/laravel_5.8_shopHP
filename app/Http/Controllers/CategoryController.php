@@ -11,17 +11,21 @@ class CategoryController extends Controller
     //thực tế
     // private $htmlSlelect;
     private $category;
-    public function __construct(Category $category){
+
+    public function __construct(Category $category)
+    {
         // $this->htmlSlelect ='';
         $this->category = $category;
     }
-    public function create(){
+
+    public function create()
+    {
         //hiển thi category trong databsae
         // $data = Category::all();
         $data = $this->category->all();
         //lấy recusive qua, khi new 1 cái contructer thì sẽ nhận 1 biến data
         $recusive = new Recusive($data);
-        // sau khi gọi được hàm thì khai báo phương thức 
+        // sau khi gọi được hàm thì khai báo phương thức
         $htmlOption = $recusive->categoryRecusive();
 
         // foreach ($data as $value){
@@ -63,7 +67,16 @@ class CategoryController extends Controller
     //      return $this->htmlSlelect;
     // }
 
-    public function index(){
+    public function index()
+    {
         return view('category.index');
+    }
+
+    //tạo phương thức store
+    public function store(Request $request){
+        $this-> category-> create([
+            'name' => $request->name,
+            'parent_id'=> request->parent_id
+        ]);
     }
 }
