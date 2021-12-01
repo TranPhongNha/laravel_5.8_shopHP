@@ -37,4 +37,11 @@ Route::prefix('categories')->group(function () {
         // midderque
         // trước khi link tạo CategoryController 
     ]);
+
+    //route submit form 
+    Route::get('/store', [
+        //mãng confit
+        'as'=> 'categories.store',
+        'uses'=> 'CategoryController@store'
+
 });
