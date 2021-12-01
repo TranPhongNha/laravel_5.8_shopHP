@@ -69,7 +69,8 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return view('category.index');
+        $categories = $this->category->latest()->paginate(5);
+        return view('category.index', compact('categories'));
     }
 
     //tạo phương thức store
@@ -81,5 +82,16 @@ class CategoryController extends Controller
             'slug'=> str_slug($request->name)
         ]);
         return redirect()->route('categories.index');
+    }
+
+    //phương thức edit
+    public function edit($id)
+    {
+
+    }
+    //phương thức delete
+    public function delete($id)
+    {
+
     }
 }

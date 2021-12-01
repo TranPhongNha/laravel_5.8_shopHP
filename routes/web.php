@@ -44,5 +44,17 @@ Route::prefix('categories')->group(function () {
         //mãng confit
         'as' => 'categories.store',
         'uses' => 'CategoryController@store']);
+    //edit
+    Route::get('/edit/{id}', [
+        //mãng confit
+        'as' => 'categories.edit',
+        'uses' => 'CategoryController@edit'
+    ]);
+    //delete
+    Route::get('/delete/{id}', [
+        //mãng confit
+        'as' => 'categories.delete',
+        'uses' => 'CategoryController@delete'
+    ]);
 
 });
