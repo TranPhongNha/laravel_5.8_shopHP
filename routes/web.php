@@ -50,6 +50,13 @@ Route::prefix('categories')->group(function () {
         'as' => 'categories.edit',
         'uses' => 'CategoryController@edit'
     ]);
+    //update
+    //edit
+    Route::post('/update/{id}', [
+        //mãng confit
+        'as' => 'categories.update',
+        'uses' => 'CategoryController@update'
+    ]);
     //delete
     Route::get('/delete/{id}', [
         //mãng confit

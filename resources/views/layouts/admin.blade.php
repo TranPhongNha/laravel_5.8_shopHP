@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @yield('title');
+    @yield('title')
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -16,11 +16,11 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-    @include('partial.header');
+    @include('partial.header')
 
-    @include('partial.siderbar');
+    @include('partial.siderbar')
 
-    @yield('content');
+    @yield('content')
 
     @include('partial.footer')
 </div>

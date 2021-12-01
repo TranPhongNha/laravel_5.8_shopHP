@@ -20,13 +20,14 @@ class CategoryController extends Controller
 
     public function create()
     {
-        //hiển thi category trong databsae
-        // $data = Category::all();
-        $data = $this->category->all();
-        //lấy recusive qua, khi new 1 cái contructer thì sẽ nhận 1 biến data
-        $recusive = new Recusive($data);
-        // sau khi gọi được hàm thì khai báo phương thức
-        $htmlOption = $recusive->categoryRecusive();
+//        //hiển thi category trong databsae
+//        // $data = Category::all();
+//        $data = $this->category->all();
+//        //lấy recusive qua, khi new 1 cái contructer thì sẽ nhận 1 biến data
+//        $recusive = new Recusive($data);
+//        // sau khi gọi được hàm thì khai báo phương thức
+//        $htmlOption = $recusive->categoryRecusive();
+        $htmlOption = $this->getCategory($parentId = '');
 
         // foreach ($data as $value){
         //     if ($value['parent_id'] == 0){
@@ -79,16 +80,41 @@ class CategoryController extends Controller
         $this->category->create([
             'name' => $request->name,
             'parent_id' => $request->parent_id,
-            'slug'=> str_slug($request->name)
+            'slug' => str_slug($request->name)
         ]);
         return redirect()->route('categories.index');
+    }
+
+// phương thức lấy category dùng chung
+    public function getCategory($parentId)
+    {
+        $data = $this->category->all();
+        //lấy recusive qua, khi new 1 cái contructer thì sẽ nhận 1 biến data
+        $recusive = new Recusive($data);
+        // sau khi gọi được hàm thì khai báo phương thức
+        $htmlOption = $recusive->categoryRecusive($parentId);
+        return $htmlOption;
     }
 
     //phương thức edit
     public function edit($id)
     {
-
+        $category = $this->category->find($id);
+        $htmlOption = $this->getCategory($category->parent_id);
+        return view('category.edit', compact('category', 'htmlOption'));
     }
+
+    //phương thức update
+    public function update($id,Request $request)
+    {
+        $this->category->find($id)->update([
+            'name' => $request->name,
+            'parent_id' => $request->parent_id,
+            'slug' => str_slug($request->name)
+        ]);
+        return redirect()->route('categories.index');
+    }
+
     //phương thức delete
     public function delete($id)
     {
