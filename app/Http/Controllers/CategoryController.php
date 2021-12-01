@@ -73,10 +73,13 @@ class CategoryController extends Controller
     }
 
     //tạo phương thức store
-    public function store(Request $request){
-        $this-> category-> create([
+    public function store(Request $request)
+    {
+        $this->category->create([
             'name' => $request->name,
-            'parent_id'=> request->parent_id
+            'parent_id' => $request->parent_id,
+            'slug'=> str_slug($request->name)
         ]);
+        return redirect()->route('categories.index');
     }
 }

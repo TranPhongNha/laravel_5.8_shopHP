@@ -40,7 +40,7 @@ Route::prefix('categories')->group(function () {
     ]);
 
     //route submit form
-    Route::get('/store', [
+    Route::post('/store', [
         //mãng confit
         'as' => 'categories.store',
         'uses' => 'CategoryController@store']);

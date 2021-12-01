@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <!-- form  -->
-                        <form action="{{route('categories.store')}} method='post'">
+                        <form action="{{route('categories.store')}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Tên Danh Mục</label>

@@ -22,7 +22,7 @@ class Recusive
                 //demo
                 // echo "<option>".$text.$value['name']."</option>";
                 //thuc tế
-                $this->htmlSlelect .= "<option>" . $text . $value['name'] . "</option>";
+                $this->htmlSlelect .= "<option value='" . $value['id'] . "'>" . $text . $value['name'] . "</option>";
                 $this->categoryRecusive($value['id'], $text . '-');
             }
         }
