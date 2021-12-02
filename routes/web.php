@@ -66,3 +66,24 @@ Route::prefix('categories')->group(function () {
     ]);
 
 });
+Route::prefix('menus')->group(function () {
+    // goi đến index menu
+    Route::get('/', [
+        //mãng confit
+        'as' => 'menus.index',
+        'uses' => 'MenuController@index'
+
+    ]);
+    Route::get('/create', [
+        //mãng confit
+        'as' => 'menus.create',
+        'uses' => 'MenuController@create'
+    ]);
+
+    //route submit form
+    Route::post('/store', [
+        //mãng confit
+        'as' => 'menus.store',
+        'uses' => 'MenuController@store']);
+
+});
