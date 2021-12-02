@@ -105,7 +105,7 @@ class CategoryController extends Controller
     }
 
     //phương thức update
-    public function update($id,Request $request)
+    public function update($id, Request $request)
     {
         $this->category->find($id)->update([
             'name' => $request->name,
@@ -118,6 +118,7 @@ class CategoryController extends Controller
     //phương thức delete
     public function delete($id)
     {
-
+        $this->category->find($id)->delete();
+        return redirect()->route('categories.index');
     }
 }

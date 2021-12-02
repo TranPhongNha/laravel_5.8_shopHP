@@ -27,13 +27,14 @@
                             @csrf
                             <div class="form-group">
                                 <label>Tên Danh Mục</label>
-                                <input type="text" class="form-control" name="name" value="{{$category->name}}" placeholder="Nhập tên Danh Mục">
+                                <input type="text" class="form-control" name="name" value="{{$category->name}}"
+                                       placeholder="Nhập tên Danh Mục">
                             </div>
                             <!-- //danh mục cha  -->
                             <div class="form-group">
                                 <label>Chọn Danh Mục Cha</label>
-                                <select class="form-control" name="parent_id">
-                                    <option value="0">Chọn danh mục cha</option>
+                                <select class="form-control">
+                                    <option name="parent_id" value="0">Chọn danh mục cha</option>
                                     <!-- do kieu string nen dùng {4xChấm than}-->
                                     {!! $htmlOption !!}
                                 </select>
