@@ -32,7 +32,7 @@
                             <!-- //danh mục cha  -->
                             <div class="form-group">
                                 <label>Chọn Menu Cha</label>
-                                <select class="form-control" >
+                                <select class="form-control" name="parent_id" >
                                     <option name="parent_id" value="0">Chọn Menu cha</option>
                                     <!-- do kieu string nen dùng {4xChấm than}-->
                                     {!! $optionSelect !!}

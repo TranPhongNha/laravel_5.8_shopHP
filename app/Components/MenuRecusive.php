@@ -19,6 +19,7 @@ class MenuRecusive
 //            gọi đệ quy
             $this->menuRecusiveAdd($dataItem->id, $subMark . '--');
         }
+
         return $this->html;
     }
 }

@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Components\MenuRecusive;
+use App\Menu;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    public function __construct(MenuRecusive $menuRecusive)
+    private $menuRecusive;
+    private $menu;
+    public function __construct(MenuRecusive $menuRecusive, Menu $menu)
     {
         $this->menuRecusive = $menuRecusive;
+        $this->menu = $menu;
     }
 
     //
     public function index()
     {
-        return view('menus.index');
+        $menus = $this->menu->paginate(10);
+        return view('menus.index',compact('menus'));
 //        dd('list menu');
     }
 
@@ -23,5 +28,15 @@ class MenuController extends Controller
     {
         $optionSelect = $this->menuRecusive->menuRecusiveAdd();
         return view('menus.add', compact('optionSelect'));
+    }
+
+    //phương thức store
+    public function store(Request $request)
+    {
+        $this->menu->create([
+            'name' => $request->name,
+            'parent_id'=>$request->parent_id
+        ]);
+        return redirect()->route('menus.index');
     }
 }
