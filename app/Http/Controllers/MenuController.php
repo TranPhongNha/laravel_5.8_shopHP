@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Components\MenuRecusive;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
+    public function __construct(MenuRecusive $menuRecusive)
+    {
+        $this->menuRecusive = $menuRecusive;
+    }
+
     //
     public function index()
     {
@@ -13,7 +19,9 @@ class MenuController extends Controller
 //        dd('list menu');
     }
 
-    public function create(){
-        return view('menus.add');
+    public function create()
+    {
+        $optionSelect = $this->menuRecusive->menuRecusiveAdd();
+        return view('menus.add', compact('optionSelect'));
     }
 }

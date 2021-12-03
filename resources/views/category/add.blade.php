@@ -32,8 +32,8 @@
                             <!-- //danh mục cha  -->
                             <div class="form-group">
                                 <label>Chọn Danh Mục Cha</label>
-                                <select class="form-control" name="parent_id">
-                                    <option value="0">Chọn danh mục cha</option>
+                                <select class="form-control">
+                                    <option name="parent_id" value="0">Chọn danh mục cha</option>
                                     <!-- do kieu string nen dùng {4xChấm than}-->
                                     {!! $htmlOption !!}
                                 </select>
