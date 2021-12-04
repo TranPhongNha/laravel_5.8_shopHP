@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     //
-    protected $fillable = ['name','parent_id'];
+    protected $fillable = ['name', 'parent_id', 'slug'];
+    //auto thêm các biến
+    //protected $guarded = [];
 }
