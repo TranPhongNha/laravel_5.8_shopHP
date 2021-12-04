@@ -57,8 +57,14 @@ class MenuController extends Controller
             'name' => $request->name,
             'parent_id' => $request->parent_id,
             'slug' => str_slug($request->name)
-
         ]);
+        return redirect()->route('menus.index');
+    }
+
+    // phuong thuc delete
+    public function delete($id)
+    {
+        $this->menu->find($id)->delete();
         return redirect()->route('menus.index');
     }
 }

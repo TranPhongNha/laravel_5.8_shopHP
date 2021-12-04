@@ -93,7 +93,6 @@ Route::prefix('menus')->group(function () {
         'uses' => 'MenuController@edit'
     ]);
     //update
-    //edit
     Route::post('/update/{id}', [
         //mãng confit
         'as' => 'menus.update',
