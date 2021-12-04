@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//------------------login--------------
+Route::get('/','AdminController@loginAdmin');
+Route::post('/','AdminController@postLoginAdmin');
+//----------------end Login -------------
+
 Route::get('/home', function () {
     return view('home');
 });
