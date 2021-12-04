@@ -41,4 +41,12 @@ class MenuController extends Controller
         ]);
         return redirect()->route('menus.index');
     }
+
+    //phương thức edit
+    public function edit($id, Request $request)
+    {
+        $menuFollowIdEdit= $this->menu->find($id);
+        $optionSelect = $this->menuRecusive->menuRecusiveEdit($menuFollowIdEdit->parent_id);
+        return view('menus.edit',compact('optionSelect','menuFollowIdEdit'));
+    }
 }

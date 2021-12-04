@@ -66,6 +66,7 @@ Route::prefix('categories')->group(function () {
     ]);
 
 });
+//////////menu
 Route::prefix('menus')->group(function () {
     // goi đến index menu
     Route::get('/', [
@@ -85,5 +86,24 @@ Route::prefix('menus')->group(function () {
         //mãng confit
         'as' => 'menus.store',
         'uses' => 'MenuController@store']);
+    //edit
+    Route::get('/edit/{id}', [
+        //mãng confit
+        'as' => 'menus.edit',
+        'uses' => 'MenuController@edit'
+    ]);
+    //update
+    //edit
+    Route::post('/update/{id}', [
+        //mãng confit
+        'as' => 'menus.update',
+        'uses' => 'MenuController@update'
+    ]);
+    //delete
+    Route::get('/delete/{id}', [
+        //mãng confit
+        'as' => 'menus.delete',
+        'uses' => 'MenuController@delete'
+    ]);
 
 });
