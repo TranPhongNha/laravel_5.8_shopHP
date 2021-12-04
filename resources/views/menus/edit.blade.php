@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <!-- form  -->
-                        <form action="{{route('menus.store')}}" method="post">
+                        <form action="{{route('menus.update',['id'=>$menuFollowIdEdit->id])}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Tên Menu</label>

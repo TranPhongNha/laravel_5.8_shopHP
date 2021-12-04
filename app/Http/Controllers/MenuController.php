@@ -45,8 +45,20 @@ class MenuController extends Controller
     //phương thức edit
     public function edit($id, Request $request)
     {
-        $menuFollowIdEdit= $this->menu->find($id);
+        $menuFollowIdEdit = $this->menu->find($id);
         $optionSelect = $this->menuRecusive->menuRecusiveEdit($menuFollowIdEdit->parent_id);
-        return view('menus.edit',compact('optionSelect','menuFollowIdEdit'));
+        return view('menus.edit', compact('optionSelect', 'menuFollowIdEdit'));
+    }
+
+//    phuong thuc updtae
+    public function update($id, Request $request)
+    {
+        $this->menu->find($id)->update([
+            'name' => $request->name,
+            'parent_id' => $request->parent_id,
+            'slug' => str_slug($request->name)
+
+        ]);
+        return redirect()->route('menus.index');
     }
 }
