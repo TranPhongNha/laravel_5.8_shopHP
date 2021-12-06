@@ -21,14 +21,14 @@ class MenuController extends Controller
     public function index()
     {
         $menus = $this->menu->paginate(10);
-        return view('menus.index', compact('menus'));
+        return view('admin.menus.index', compact('menus'));
 //        dd('list menu');
     }
 
     public function create()
     {
         $optionSelect = $this->menuRecusive->menuRecusiveAdd();
-        return view('menus.add', compact('optionSelect'));
+        return view('admin.menus.add', compact('optionSelect'));
     }
 
     //phương thức store
@@ -39,7 +39,7 @@ class MenuController extends Controller
             'parent_id' => $request->parent_id,
             'slug' => str_slug($request->name)
         ]);
-        return redirect()->route('menus.index');
+        return redirect()->route('admin.menus.index');
     }
 
     //phương thức edit
@@ -47,7 +47,7 @@ class MenuController extends Controller
     {
         $menuFollowIdEdit = $this->menu->find($id);
         $optionSelect = $this->menuRecusive->menuRecusiveEdit($menuFollowIdEdit->parent_id);
-        return view('menus.edit', compact('optionSelect', 'menuFollowIdEdit'));
+        return view('admin.menus.edit', compact('optionSelect', 'menuFollowIdEdit'));
     }
 
 //    phuong thuc updtae
@@ -58,13 +58,13 @@ class MenuController extends Controller
             'parent_id' => $request->parent_id,
             'slug' => str_slug($request->name)
         ]);
-        return redirect()->route('menus.index');
+        return redirect()->route('admin.menus.index');
     }
 
     // phuong thuc delete
     public function delete($id)
     {
         $this->menu->find($id)->delete();
-        return redirect()->route('menus.index');
+        return redirect()->route('admin.menus.index');
     }
 }

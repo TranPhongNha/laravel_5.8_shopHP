@@ -50,7 +50,7 @@ class CategoryController extends Controller
         // $this->categoryRecusive(0);
         //thực tế
         // $htmlOption = $this->categoryRecusive(0);
-        return view('category.add', compact('htmlOption'));
+        return view('admin.category.add', compact('htmlOption'));
         //    return view('category.add');
     }
     //đệ Qui
@@ -71,7 +71,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->category->latest()->paginate(5);
-        return view('category.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     //tạo phương thức store
@@ -82,7 +82,7 @@ class CategoryController extends Controller
             'parent_id' => $request->parent_id,
             'slug' => str_slug($request->name)
         ]);
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
 // phương thức lấy category dùng chung
@@ -101,7 +101,7 @@ class CategoryController extends Controller
     {
         $category = $this->category->find($id);
         $htmlOption = $this->getCategory($category->parent_id);
-        return view('category.edit', compact('category', 'htmlOption'));
+        return view('admin.category.edit', compact('category', 'htmlOption'));
     }
 
     //phương thức update
@@ -112,13 +112,13 @@ class CategoryController extends Controller
             'parent_id' => $request->parent_id,
             'slug' => str_slug($request->name)
         ]);
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     //phương thức delete
     public function delete($id)
     {
         $this->category->find($id)->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }
