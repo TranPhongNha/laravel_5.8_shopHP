@@ -6,7 +6,8 @@
 @endsection
 
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link href="{{asset('vendors/select2/select2.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('admin/product/add/add.css')}}" rel="stylesheet"/>
 
 @endsection
 
@@ -43,12 +44,12 @@
                             {{--hinh anh--}}
                             <div class="form-group">
                                 <label>Ảnh Sản Phẩm</label>
-                                <input type="file" class="form-control" name="feature_image_path">
+                                <input type="file" class="form-control-file" name="feature_image_path">
                             </div>
                             {{--hinh anh chi tei61t --}}
                             <div class="form-group">
                                 <label>Ảnh chi tiết Sản Phẩm</label>
-                                <input type="file" multiple class="form-control" name="image_path[]">
+                                <input type="file" multiple class="form-control-file" name="image_path[]">
                             </div>
 
                             <!-- danh mục cha  -->
@@ -65,7 +66,8 @@
                             {{--tag--}}
                             <div class="form-group">
                                 <label>Nhập tags cho SP</label>
-                                <select class="form-control tags_select_choose" multiple="multiple"></select>
+                                <select name="tag[]" class="form-control tags_select_choose"
+                                        multiple="multiple"></select>
                             </div>
 
                             {{--content--}}
@@ -88,21 +90,8 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(function () {
-            $(".tags_select_choose").select2({
-                tags: true,
-                tokenSeparators: [',', ' ']
-            })
-            $(".select2_init").select2({
-                placeholder: "Chọn danh mục",
-                allowClear: true
-            })
-
-
-        })
-    </script>
+    <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
+    <script src="{{asset('admin/product/add/add.js')}}"></script>
 @endsection
 
 

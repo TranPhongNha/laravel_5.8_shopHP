@@ -8,6 +8,7 @@ class AdminController extends Controller
 {
     public function loginAdmin()
     {
+//        check account
 //        if (auth()->check()){
 //            return redirect()->to('home');
 //        }
