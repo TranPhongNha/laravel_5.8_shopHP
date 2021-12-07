@@ -112,6 +112,24 @@ Route::prefix('admin')->group(function () {
         ]);
 
     });
+
+    //product
+    Route::prefix('product')->group(function () {
+        // goi đến index menu
+        Route::get('/', [
+            //mãng confit
+            'as' => 'product.index',
+            'uses' => 'AdminProductController@index'
+
+        ]);
+        Route::get('/create', [
+            //mãng confit
+            'as' => 'product.create',
+            'uses' => 'AdminProductController@create'
+
+        ]);
+
+    });
 });
 
 

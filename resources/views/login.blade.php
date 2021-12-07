@@ -495,7 +495,7 @@
 <div id="login">
 
     <div class="container">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+{{--        <h3 class="text-center text-white pt-5">Login form</h3>--}}
         {{--animation--}}
         <div class="animasion">
             <div class="backg">
