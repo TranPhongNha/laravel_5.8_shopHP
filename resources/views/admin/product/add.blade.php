@@ -7,7 +7,8 @@
 
 @section('css')
     <link href="{{asset('vendors/select2/select2.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('admin/product/add/add.css')}}" rel="stylesheet"/>
+
+    <link href="{{asset('admins/product/add/add.css')}}" rel="stylesheet"/>
 
 @endsection
 
@@ -75,10 +76,10 @@
                         {{--content--}}
 
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nhập nội dung</label>
-                                <textarea class="form-control tinymce_editor_init" name="content" rows="8"></textarea>
+                                <textarea class="form-control tinymce_editor_init" name="content" rows="15"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -98,14 +99,11 @@
 
 @section('js')
     <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
-<<<<<<< HEAD
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="{{asset('admin/product/add/add.js')}}"></script>
-=======
-    <script src="{{asset('admin/product/add/add.js')}}"></script>
+    <script src="{{asset('vendors/select2/tinymce.min.js')}}" referrerpolicy="origin"></script>
+    <script src="{{asset('admins/product/add/add.js')}}"></script>
+    <script src="{{asset('admins/product/add/add.js')}}"></script>
 @endsection
->>>>>>> b31eaf06f0877fbd3c1a62a2673b8b2b518267e7
 
-@endsection
+
 {{------- da chạy 3 câu lệng cua timymce--}}
 

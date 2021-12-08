@@ -9,7 +9,6 @@ $(function () {
     })
 
 
-<<<<<<< HEAD
     let editor_config = {
         path_absolute : "/",
         selector: 'textarea.tinymce_editor_init',
@@ -26,7 +25,7 @@ $(function () {
             let y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
             let cmsURL = editor_config.path_absolute + 'filemanager?editor=' + meta.fieldname;
-            if (meta.filetype == 'image') {
+            if (meta.filetype === 'image') {
                 cmsURL = cmsURL + "&type=Images";
             } else {
                 cmsURL = cmsURL + "&type=Files";
@@ -49,6 +48,5 @@ $(function () {
     tinymce.init(editor_config);
 
 
-=======
->>>>>>> b31eaf06f0877fbd3c1a62a2673b8b2b518267e7
+
 })

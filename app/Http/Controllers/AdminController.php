@@ -9,15 +9,15 @@ class AdminController extends Controller
     public function loginAdmin()
     {
 //        check account
-<<<<<<< HEAD
+
         if (auth()->check()){
             return redirect()->to('home');
         }
-=======
+
 //        if (auth()->check()){
 //            return redirect()->to('home');
 //        }
->>>>>>> b31eaf06f0877fbd3c1a62a2673b8b2b518267e7
+
         return view('login');
     }
 
