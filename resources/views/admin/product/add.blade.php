@@ -98,8 +98,13 @@
 
 @section('js')
     <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
+<<<<<<< HEAD
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="{{asset('admin/product/add/add.js')}}"></script>
+=======
+    <script src="{{asset('admin/product/add/add.js')}}"></script>
+@endsection
+>>>>>>> b31eaf06f0877fbd3c1a62a2673b8b2b518267e7
 
 @endsection
 {{------- da chạy 3 câu lệng cua timymce--}}

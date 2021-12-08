@@ -9,6 +9,7 @@ $(function () {
     })
 
 
+<<<<<<< HEAD
     let editor_config = {
         path_absolute : "/",
         selector: 'textarea.tinymce_editor_init',
@@ -48,4 +49,6 @@ $(function () {
     tinymce.init(editor_config);
 
 
+=======
+>>>>>>> b31eaf06f0877fbd3c1a62a2673b8b2b518267e7
 })
