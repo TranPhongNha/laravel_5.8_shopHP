@@ -24,7 +24,7 @@
         <!-- Content Header (Page header) -->
     @include('partial.content-header',['name'=>'product', 'key'=>'Add'])
     <!-- /.content-header -->
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -76,7 +76,7 @@
                         {{--content--}}
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label>Nhập nội dung</label>
                                 <textarea class="form-control tinymce_editor_init" name="content" rows="15"></textarea>
@@ -98,10 +98,13 @@
 @endsection
 
 @section('js')
+
+
     <script src="{{asset('vendors/select2/select2.min.js')}}"></script>
     <script src="{{asset('vendors/select2/tinymce.min.js')}}" referrerpolicy="origin"></script>
     <script src="{{asset('admins/product/add/add.js')}}"></script>
     <script src="{{asset('admins/product/add/add.js')}}"></script>
+
 @endsection
 
 

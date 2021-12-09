@@ -128,8 +128,18 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminProductController@create'
 
         ]);
+        Route::post('/store', [
+            //mãng confit
+            'as' => 'product.store',
+            'uses' => 'AdminProductController@store'
+
+        ]);
 
     });
 });
 
 
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');

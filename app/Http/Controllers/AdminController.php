@@ -10,10 +10,6 @@ class AdminController extends Controller
     {
 //        check account
 
-        if (auth()->check()){
-            return redirect()->to('home');
-        }
-
 //        if (auth()->check()){
 //            return redirect()->to('home');
 //        }
