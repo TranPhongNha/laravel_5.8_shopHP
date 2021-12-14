@@ -56,7 +56,7 @@
                             <!-- danh mục cha  -->
                             <div class="form-group">
                                 <label>Chọn Danh Mục </label>
-                                <select class="form-control select2_init" name="parent_id">
+                                <select class="form-control select2_init" name="category_id">
                                     <option name="parent_id" value="">Chọn danh mục</option>
                                     <!-- do kieu string nen dùng {4xChấm than}-->
                                     {!! $htmlOption !!}
@@ -79,7 +79,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Nhập nội dung</label>
-                                <textarea class="form-control tinymce_editor_init" name="content" rows="15"></textarea>
+                                <textarea class="form-control tinymce_editor_init" name="contents" rows="15"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">

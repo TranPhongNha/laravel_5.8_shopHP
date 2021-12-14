@@ -18,6 +18,7 @@ trait StorageImageTrait
             $dataUploadTrait = [
                 'file_name' => $fileNameOrigin,  //trả về filename gốc
                 'file_path' => Storage::url($filePath)
+
             ];
             return $dataUploadTrait;
         }
