@@ -25,4 +25,22 @@ trait StorageImageTrait
         return null;
 
     }
+
+    //phuong thuc up load nhieu file
+    public function storageTraitUploadMutiple($file, $foderName)
+    {
+        //check file có được upload ko
+
+        //xử lý upload file
+
+        $fileNameOrigin = $file->getClientOriginalName();
+        $fileNameHash = str_random(20) . '.' . $file->getClientOriginalExtension();
+        $filePath = $file->storeAs('public/' . $foderName . '/' . auth()->id(), $fileNameHash);
+        $dataUploadTrait = [
+            'file_name' => $fileNameOrigin,  //trả về filename gốc
+            'file_path' => Storage::url($filePath)
+
+        ];
+        return $dataUploadTrait;
+    }
 }
