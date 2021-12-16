@@ -1,7 +1,8 @@
 $(function () {
     $(".tags_select_choose").select2({
         tags: true,
-        tokenSeparators: [',', ' ']
+        //kêt thúc 1 tag token
+        tokenSeparators: [',']
     })
     $(".select2_init").select2({
         placeholder: "Chọn danh mục",

@@ -6,9 +6,10 @@ use App\Category;
 use App\Components\Recusive;
 use App\Product;
 use App\ProductImage;
+use App\ProductTag;
+use App\Tag;
 use App\Traits\StorageImageTrait;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Foreach_;
 use Storage;
 
 class AdminProductController extends Controller
@@ -16,12 +17,19 @@ class AdminProductController extends Controller
     use StorageImageTrait;
 
     private $category;
+    private $product;
+    private $productImage;
+    private $tag;
+    private $productTag;
 
-    public function __construct(Category $category, Product $product, ProductImage $productImage)
+
+    public function __construct(Category $category, Product $product, ProductImage $productImage, Tag $tag, ProductTag $productTag)
     {
         $this->category = $category;
         $this->product = $product;
         $this->productImage = $productImage;
+        $this->tag = $tag;
+        $this->productTag = $productTag;
     }
 
     public function index()
@@ -48,6 +56,7 @@ class AdminProductController extends Controller
 
     public function store(Request $request)
     {
+//        dd($request->tags);
         $dataProductCreate = [
             'name' => $request->name,
             'price' => $request->price,
@@ -85,6 +94,16 @@ class AdminProductController extends Controller
             }
         }
 
-
+//        //insert tags to product_tag
+        foreach ($request->tags as $tagItem) {
+            //insert to tags
+            $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
+//            $this->productTag::create([
+//                'product_id' => $product->id,
+//                'tag_id' => $tagInstance->id
+//            ]);
+            $tagIds[] = $tagInstance->id;
+        }
+        $product->tags()->attach($tagIds);
     }
 }

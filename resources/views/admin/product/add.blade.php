@@ -67,7 +67,7 @@
                             {{--tag--}}
                             <div class="form-group">
                                 <label>Nhập tags cho SP</label>
-                                <select name="tag[]" class="form-control tags_select_choose"
+                                <select name="tags[]" class="form-control tags_select_choose"
                                         multiple="multiple"></select>
                             </div>
 
