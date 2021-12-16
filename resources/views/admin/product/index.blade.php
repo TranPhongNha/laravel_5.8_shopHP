@@ -4,11 +4,17 @@
 @section('title')
     <title>Add product</title>
 @endsection
-<!-- @section('sidebar')
-    @parent
+@section('css')
+    <link rel="stylesheet" href="{{asset('admins/product/index/list.css')}}">
+@endsection
+@section('js')
+    <link rel="stylesheet" href="">
+@endsection
+{{--<!-- @section('sidebar')--}}
+{{--    @parent--}}
 
-        <p>This is appended to the master sidebar.</p>
-@endsection -->
+{{--        <p>This is appended to the master sidebar.</p>--}}
+{{--@endsection -->--}}
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -38,29 +44,30 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {{--                            @foreach($categories as $category)--}}
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Iphone 5</td>
-                                <td>22.000.000</td>
-                                <td>
-                                    <img src="" alt="">
-                                </td>
-                                <td>Điện thoại</td>
-                                <td>
-                                    <a href=""
-                                       class="btn  btn-default">Edit</a>
-                                    <a href=""
-                                       class="btn  btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                            {{--                            @endforeach--}}
+                            @foreach($products as $productItem)
+                                <tr>
+                                    <th scope="row">{{$productItem->id}}</th>
+                                    <td>{{$productItem->name}}</td>
+                                    <td>{{$productItem->price}}</td>
+                                    <td>
+                                        <img class="product_image_150_100" src="{{$productItem->feature_image_path}}"
+                                             alt="">
+                                    </td>
+                                    <td>{{$productItem->category->name}}</td>
+                                    <td>
+                                        <a href=""
+                                           class="btn  btn-default">Edit</a>
+                                        <a href=""
+                                           class="btn  btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12">
                         {{--pagination--}}
-                        {{--                        {{$categories->links()}}--}}
+                        {{$products->links()}}
                     </div>
                     <!-- end table  -->
                 </div>
